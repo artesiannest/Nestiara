@@ -1,7 +1,7 @@
 // Edit konten dan tautan di berkas ini. JavaScript biasa, tanpa fetch atau module.
 window.PORTFOLIO_DATA = {
   "profile": {
-    "name": "Nestiara Lidya Kakihary",
+    "name": "Nestiara",
     "nickname": "Nest",
     "title": "Information Systems Professional | IT Project Manager | Web Developer",
     "email": "nestiara19@gmail.com",
@@ -551,7 +551,7 @@ window.PORTFOLIO_DATA = {
       "topic": "Keamanan IoT",
       "type": "Systematic literature review",
       "authors": [
-        "Nestiara Lidya Kakihary",
+        "Nestiara",
         "Irwan Sembiring",
         "Hindriyanto D. Purnomo"
       ],
@@ -569,7 +569,7 @@ window.PORTFOLIO_DATA = {
       "topic": "Kualitas Sistem",
       "type": "Studi kuantitatif deskriptif",
       "authors": [
-        "Nestiara Lidya Kakihary"
+        "Nestiara"
       ],
       "focus": "Evaluasi kualitas sistem klinik pada IsawaBeauty Clinic Tangerang.",
       "method": "Kuesioner Likert kepada lima pengguna yang dipilih melalui purposive sampling; analisis Quality Index berbobot.",
@@ -585,7 +585,7 @@ window.PORTFOLIO_DATA = {
       "topic": "Metaverse",
       "type": "Systematic literature review",
       "authors": [
-        "Nestiara Lidya Kakihary"
+        "Nestiara"
       ],
       "focus": "Konsep, teknologi pendukung, dan implikasi metaverse bagi bisnis dan teknologi Indonesia.",
       "method": "Systematic literature review dengan sintesis terhadap 14 artikel jurnal.",
@@ -601,7 +601,7 @@ window.PORTFOLIO_DATA = {
       "topic": "Kelayakan Sistem",
       "type": "Studi kasus kualitatif",
       "authors": [
-        "Nestiara Lidya Kakihary",
+        "Nestiara",
         "Aprilia Christianty Zampi",
         "Theodoxa Davadinata",
         "Eko Purwoko"
