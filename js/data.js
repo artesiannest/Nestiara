@@ -2,7 +2,7 @@
 window.PORTFOLIO_DATA = {
   "profile": {
     "name": "Nestiara",
-    "nickname": "Nest",
+    "nickname": "Nestiara",
     "title": "Information Systems Professional | IT Project Manager | Web Developer",
     "email": "nestiara19@gmail.com",
     "phone": "+62 851 1780 0728",
@@ -13,7 +13,7 @@ window.PORTFOLIO_DATA = {
     "linkedinUrl": "",
     "githubUrl": "",
     "headline": "Membangun sistem digital yang lebih membantu pengguna.",
-    "heroDescription": "Saya Nest, seorang profesional Sistem Informasi dengan pengalaman dalam pengembangan web dan pengelolaan proyek IT. Saya tertarik menghubungkan kebutuhan pengguna, proses bisnis, dan teknologi melalui sistem yang mudah digunakan, termasuk penambahan fitur AI untuk membantu pengguna memahami informasi dan menyelesaikan pekerjaan.",
+    "heroDescription": "Saya Nestiara, seorang profesional Sistem Informasi dengan pengalaman dalam pengembangan web dan pengelolaan proyek IT. Saya tertarik menghubungkan kebutuhan pengguna, proses bisnis, dan teknologi melalui sistem yang mudah digunakan, termasuk penambahan fitur AI untuk membantu pengguna memahami informasi dan menyelesaikan pekerjaan.",
     "aboutDescription": "Pengalaman saya mencakup pengembangan aplikasi web, komunikasi klien, koordinasi tim, dan pengelolaan ruang lingkup proyek. Saya memadukan kemampuan teknis dan analisis proses bisnis untuk menerjemahkan kebutuhan menjadi alur kerja digital yang mudah digunakan."
   },
   "skills": [

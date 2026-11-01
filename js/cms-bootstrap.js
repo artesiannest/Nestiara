@@ -17,6 +17,20 @@
     }
   }
 
+  // Public identity is fixed even when older CMS content is loaded.
+  const publicData = window.PORTFOLIO_DATA;
+  if (publicData && publicData.profile) {
+    publicData.profile.name = 'Nestiara';
+    publicData.profile.nickname = 'Nestiara';
+    for (const field of ['heroDescription', 'aboutDescription']) {
+      if (typeof publicData.profile[field] === 'string') {
+        publicData.profile[field] = publicData.profile[field]
+          .replace(/Nestiara\s+Lidya\s+Kakihary/gi, 'Nestiara')
+          .replace(/\bNest\b/g, 'Nestiara');
+      }
+    }
+  }
+
   function updateCounts() {
     const data = window.PORTFOLIO_DATA;
     if (!data) return;
@@ -74,7 +88,7 @@
   for (const path of ['js/main.js', 'js/room.js']) {
     await new Promise(resolve => {
       const script = document.createElement('script');
-      script.src = path + '?v=20261009-games-1';
+      script.src = path + '?v=nestiara-20261102';
       script.onload = resolve;
 
       script.onerror = () => {

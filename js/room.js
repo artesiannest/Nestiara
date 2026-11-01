@@ -3,7 +3,7 @@
   const root = document.documentElement;
   const pages = Array.from(document.querySelectorAll('[data-view]'));
   const routeMap = {beranda:'beranda',tentang:'tentang',pengalaman:'tentang',portfolio:'portfolio',riset:'riset',kontak:'kontak',games:'games'};
-  const names = {beranda:'Kamar Nest',tentang:'Tentang & Pengalaman',portfolio:'Portfolio Sistem',riset:'Riset Akademik',kontak:'Kontak',games:'Games'};
+  const names = {beranda:'Kamar Nestiara',tentang:'Tentang & Pengalaman',portfolio:'Portfolio Sistem',riset:'Riset Akademik',kontak:'Kontak',games:'Games'};
   let activeView = 'beranda';
   let sourceHotspot = null;
   let soundEnabled = false;
@@ -19,7 +19,7 @@
     pages.forEach(page => { page.hidden = page.dataset.view !== activeView; });
     root.classList.add('room-mode');
     root.classList.toggle('room-view', activeView === 'beranda');
-    document.title = `${names[activeView]} — Nestiara Lidya Kakihary`;
+    document.title = `${names[activeView]} — Nestiara`;
     document.querySelectorAll('#navigation a').forEach(link => { const key = link.hash.slice(1); const selected = key === hash || (activeView === 'beranda' && key === 'beranda'); link.classList.toggle('active', selected); if (selected) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current'); });
     const page = pages.find(p => !p.hidden);
     // Sections revealed in a prior visit remain visible on return.

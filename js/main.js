@@ -161,9 +161,7 @@
 
   setText(
     '.hero-copy > .eyebrow',
-    `${String(profile.name || '').toUpperCase()} / ${String(
-      profile.nickname || ''
-    ).toUpperCase()}`
+    String(profile.name || 'Nestiara').toUpperCase()
   );
 
   setText('.profession', profile.title);
