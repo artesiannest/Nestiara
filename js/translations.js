@@ -1,4 +1,4 @@
-// Add translations for new CMS text here. Keys are the original visible text.
+// Add translations for new CMS text here.
 window.NEST_TRANSLATIONS = {
   "Kamar": {
     "en": "Room",
@@ -944,5 +944,20 @@ window.NEST_TRANSLATIONS = {
     "en": "Supporting faculty website management and online learning coordination, including virtual class scheduling and digital workflow improvements.",
     "th": "สนับสนุนการจัดการเว็บไซต์คณะและการเรียนออนไลน์ รวมถึงการจัดตารางเรียนเสมือนจริงและปรับปรุงกระบวนการดิจิทัล",
     "zh-CN": "协助学院网站管理和在线教学协调，包括虚拟课堂排期与数字工作流程改进。"
+  },
+  "Jeda animasi": {
+    "en": "Pause animation",
+    "th": "หยุดภาพเคลื่อนไหวชั่วคราว",
+    "zh-CN": "暂停动画"
+  },
+  "Putar animasi": {
+    "en": "Play animation",
+    "th": "เล่นภาพเคลื่อนไหว",
+    "zh-CN": "播放动画"
+  },
+  "Karakter kartun Nestiara berlari di treadmill": {
+    "en": "Cartoon Nestiara running on a treadmill",
+    "th": "ตัวการ์ตูน Nestiara วิ่งบนลู่วิ่ง",
+    "zh-CN": "Nestiara 卡通角色在跑步机上跑步"
   }
 };

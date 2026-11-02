@@ -3,8 +3,8 @@
   const languages = {
     id: { code: 'ID', label: 'Bahasa Indonesia', flag: 'id' },
     en: { code: 'EN', label: 'English', flag: 'gb' },
-    th: { code: 'TH', label: 'ไทย · Thai', flag: 'th' },
-    'zh-CN': { code: '中文', label: '中文 (简体) · Chinese', flag: 'cn' }
+    th: { code: 'TH', label: 'Thailand · ไทย', flag: 'th' },
+    'zh-CN': { code: '中文', label: 'China · 中文', flag: 'cn' }
   };
   const key = 'nestiara-language-v1';
   let language = 'id';
@@ -108,6 +108,19 @@
     host.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{setLanguage(button.dataset.language);host.open=false;host.querySelector('summary').focus();}));
     document.addEventListener('click',event=>{if(!host.contains(event.target))host.open=false;});
     document.addEventListener('keydown',event=>{if(event.key==='Escape'&&host.open){host.open=false;host.querySelector('summary').focus();}});
+    const summary=host.querySelector('summary');
+    const panel=host.querySelector('.language-options');
+    function position(){
+      summary.setAttribute('aria-expanded',String(host.open));
+      if(!host.open)return;
+      const box=summary.getBoundingClientRect();
+      panel.style.left=Math.max(12,Math.min(box.right-248,window.innerWidth-260))+'px';
+      panel.style.top=(box.bottom+10)+'px';
+      panel.style.maxHeight=Math.max(120,window.innerHeight-box.bottom-24)+'px';
+    }
+    host.addEventListener('toggle',position);
+    window.addEventListener('resize',position);
+    window.addEventListener('scroll',position,{passive:true});
     setLanguage(language);
   }
   window.NestLanguage={setLanguage,translate,getLanguage:()=>language,refresh:apply};
