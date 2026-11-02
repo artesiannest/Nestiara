@@ -1,0 +1,22 @@
+/* Header selector, scoped to avoid changing room navigation or portfolio cards. */
+.header-actions{align-items:center;flex-shrink:0}
+.language-switcher{position:relative;font-size:14px;line-height:1.5;color:var(--text);flex-shrink:0}
+.language-switcher summary{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 11px;border:1px solid var(--line);border-radius:9px;cursor:pointer;list-style:none;background:var(--surface,var(--bg));user-select:none}
+.language-switcher summary::-webkit-details-marker{display:none}
+.language-switcher summary:focus-visible,.language-switcher button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.language-switcher[open] summary{border-color:var(--accent)}
+.language-flag{display:block;width:25px;height:17px;border-radius:2px;overflow:hidden;border:1px solid #ffffff22;flex-shrink:0}
+.language-chevron{font-size:15px;color:var(--muted)}
+.language-options{position:absolute;right:0;top:calc(100% + 10px);z-index:70;min-width:245px;max-width:calc(100vw - 28px);padding:7px;background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 50px #0003}
+.language-options button{display:flex;align-items:center;gap:11px;width:100%;min-height:46px;padding:10px 11px;text-align:left;border:0;border-radius:7px;background:transparent;color:var(--text);font:inherit;cursor:pointer}
+.language-options button:hover,.language-options button.selected{background:var(--soft);color:var(--accent)}
+.language-check{margin-left:auto;visibility:hidden}
+.language-options button.selected .language-check{visibility:visible}
+html[lang=th] body{font-family:"Noto Sans Thai",Tahoma,"Leelawadee UI",sans-serif}
+html[lang=zh-CN] body{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}
+html[lang=th] h1,html[lang=th] h2,html[lang=th] h3{line-height:1.45;letter-spacing:normal;font-family:inherit}
+html[lang=zh-CN] h1,html[lang=zh-CN] h2,html[lang=zh-CN] h3{line-height:1.4;letter-spacing:normal;font-family:inherit}
+html[lang=th] .eyebrow,html[lang=zh-CN] .eyebrow{letter-spacing:.035em}
+@media(max-width:1200px){.header{gap:14px}.header #navigation{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);padding:18px 5%;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}.header #navigation.open{display:flex}.header #navigation a{padding:10px}.header .mobile-menu{display:grid}.header .brand-label{display:none}}
+@media(max-width:480px){.header{padding-left:4%;padding-right:4%;gap:8px}.header-actions{gap:6px}.language-switcher summary{padding:7px;gap:5px}.language-flag{width:22px;height:15px}.header .brand{font-size:1.65rem}.header .icon-button{width:38px;min-height:40px}.language-options{min-width:220px}}
+@media print{.language-switcher{display:none!important}}
