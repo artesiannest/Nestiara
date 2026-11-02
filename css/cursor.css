@@ -1,0 +1,12 @@
+/* Desktop cursor mascot; touch and text editing use standard cursors. */
+.nest-cursor{display:none;position:fixed;left:0;top:0;width:60px;height:60px;z-index:2147483646;pointer-events:none;user-select:none;contain:layout style;transform:translate(-150px,-150px)}
+.nest-cursor img{position:absolute;left:-1.3px;top:-9.4px;width:56px;height:56px;max-width:none;object-fit:contain;filter:drop-shadow(0 1px 2px #0005)}
+.nest-cursor::before{content:'';position:absolute;left:-2px;top:-2px;width:4px;height:4px;border-radius:50%;background:#70dfc5;box-shadow:0 0 0 1px #16362e}
+.nest-cursor.is-link img{filter:drop-shadow(0 0 3px #70dfc5)}
+.nest-cursor.is-down img{opacity:.75}
+@media(hover:hover) and (pointer:fine){
+ html.nest-cursor-enabled,html.nest-cursor-enabled *{cursor:none!important}
+ html.nest-cursor-enabled .nest-cursor{display:block}
+ html.nest-cursor-enabled input,html.nest-cursor-enabled textarea,html.nest-cursor-enabled [contenteditable]:not([contenteditable=false]),html.nest-cursor-enabled [role=textbox]{cursor:text!important}
+}
+@media print{.nest-cursor{display:none!important}}
