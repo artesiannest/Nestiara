@@ -8,7 +8,6 @@ window.PORTFOLIO_DATA = {
     "phone": "+62 851 1780 0728",
     "whatsapp": "6285117800728",
     "location": "Indonesia",
-    "resumeUrl": "assets/documents/resume-nestiara.pdf",
     "website": "https://artesiannest.carrd.co/",
     "linkedinUrl": "",
     "githubUrl": "",
