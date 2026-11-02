@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Kamar Nest — Portfolio Nestiara</title>
+
+  <meta
+    name="description"
+    content="Portfolio Nestiara: pengembangan sistem, pengalaman, riset akademik, dan games."
+  >
+  <meta name="theme-color" content="#0b1217">
+
+  <meta property="og:title" content="Nest — Digital Portfolio">
+  <meta
+    property="og:description"
+    content="Jelajahi karya, pengalaman, riset, dan games buatan Nest."
+  >
+  <meta property="og:type" content="website">
+  <meta
+    property="og:url"
+    content="https://artesiannest.github.io/Nest-Portfolio/"
+  >
+
+  <link
+    rel="icon"
+    href="assets/images/profile/favicon.svg"
+    type="image/svg+xml"
+  >
+
+  <!-- Urutan stylesheet penting. -->
+  <link rel="stylesheet" href="css/style.css?v=layout-20261102-2">
+  <link rel="stylesheet" href="css/room.css?v=layout-20261102-2">
+  <link rel="stylesheet" href="css/games.css?v=layout-20261102-2">
+
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('nest-theme');
+
+      document.documentElement.dataset.theme =
+        savedTheme === 'light' ? 'light' : 'dark';
+    } catch (_) {}
+  </script>
+
+  <!-- CMS bootstrap memuat main.js dan room.js. -->
+  <script src="js/data.js?v=layout-20261102-2" defer></script>
+  <script src="js/cms-config.js?v=layout-20261102-2" defer></script>
+  <script src="js/cms-api.js?v=layout-20261102-2" defer></script>
+  <script
+    src="js/cms-bootstrap.js?v=layout-20261102-2"
+    defer
+  ></script>
+
+  <style>
+    /* Keep the About illustration alongside the introduction on wide screens. */
+    #about-intro.hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 40px 56px;
+      align-items: center;
+    }
+    #about-intro > .hero-copy { grid-column: 1; grid-row: 1; min-width: 0; }
+    #about-intro > .hero-art { grid-column: 2; grid-row: 1; min-width: 0; width: 100%; margin-top: 0; }
+    #about-intro > .focus-strip { grid-column: 1 / -1; grid-row: 2; min-width: 0; }
+    #about-intro .hero-copy h1 { font-size: clamp(2.5rem, 4vw, 4.25rem); line-height: 1.15; }
+    #about-intro .profession { overflow-wrap: anywhere; }
+    @media (max-width: 800px) {
+      #about-intro.hero { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+      #about-intro > .hero-copy { grid-column: 1; grid-row: 1; }
+      #about-intro > .hero-art { grid-column: 1; grid-row: 2; max-width: 520px; justify-self: center; }
+      #about-intro > .focus-strip { grid-column: 1; grid-row: 3; margin-top: 0; }
+      #about-intro .hero-copy h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Langsung ke konten</a>
+
+  <header class="header">
+    <a
+      class="brand"
+      href="#beranda"
+      aria-label="Nest, beranda"
+    >
+      nest<span class="brand-dot">.</span>
+      <span class="brand-label">DIGITAL PORTFOLIO</span>
+    </a>
+
+    <nav id="navigation" aria-label="Navigasi utama">
+      <a href="#beranda" class="active">Kamar</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#riset">Riset</a>
+      <a href="#games">Games</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <div class="header-actions">
+      <button
+        id="theme"
+        class="icon-button"
+        type="button"
+        aria-label="Aktifkan mode terang"
+        title="Ganti tema"
+      >◐</button>
+
+      <button
+        id="menu"
+        class="icon-button mobile-menu"
+        type="button"
+        aria-label="Buka menu"
+        aria-controls="navigation"
+        aria-expanded="false"
+      >☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =========================
+         BERANDA / KAMAR
+    ========================== -->
+    <section
+      id="beranda"
+      class="room-home"
+      data-view="beranda"
+      aria-label="Kamar interaktif Nestiara"
+    >
+      <div class="room-welcome">
+        <div>
+          <p class="eyebrow">
+            A LITTLE ROOM, A WORLD OF IDEAS
+          </p>
+
+          <h1>Masuk ke dunia <em>Nest.</em></h1>
+        </div>
+
+        <p>
+          Klik benda di kamar untuk mengenal saya,<br>
+          menjelajahi karya, atau memulai percakapan.
+        </p>
+      </div>
+
+      <div class="room-frame">
+        <div id="room-stage" class="room-stage">
+          <img
+            class="room-background"
+            src="assets/images/room/room-background.png"
+            alt="Kamar kerja dengan mading portfolio, rak riset, dan meja kerja."
+            width="1672"
+            height="941"
+            fetchpriority="high"
+          >
+
+          <div
+            class="room-ambience"
+            aria-hidden="true"
+          ></div>
+
+          <div
+            class="lamp-glow"
+            aria-hidden="true"
+          ></div>
+
+          <div class="room-dust" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <!-- Mading Portfolio -->
+          <a
+            id="board-hotspot"
+            class="room-hotspot board-hotspot"
+            href="#portfolio"
+            aria-label="Buka Portfolio Sistem"
+          >
+            <span
+              id="board-previews"
+              class="board-previews"
+              aria-hidden="true"
+            ></span>
+
+            <span class="hotspot-label">
+              <span class="hotspot-marker"></span>
+              Mading Portfolio
+
+              <small id="room-portfolio-count">
+                Memuat jumlah sistem…
+              </small>
+            </span>
+          </a>
+
+          <!-- Rak Riset -->
+          <a
+            id="research-hotspot"
+            class="room-hotspot research-hotspot"
+            href="#riset"
+            aria-label="Buka Riset Akademik"
+          >
+            <span class="hotspot-label">
+              <span class="hotspot-marker"></span>
+              Riset Akademik
+
+              <small id="room-research-count">
+                Memuat jumlah riset…
+              </small>
+            </span>
+          </a>
+
+          <!-- Karakter Nestiara -->
+          <a
+            id="character-hotspot"
+            class="character-link"
+            href="#tentang"
+            aria-label="Berkenalan dengan Nestiara"
+          >
+            <img
+              class="room-character"
+              src="assets/images/room/nestiara-character.png"
+              alt="Nestiara berambut panjang dan berkacamata, mengenakan hoodie hitam serta celana putih, duduk di depan laptop."
+              width="1024"
+              height="1024"
+            >
+          </a>
+
+          <!-- Bubble di bawah kursi -->
+          <a
+            id="nest-introduction"
+            class="room-introduction nest-under-chair"
+            href="#tentang"
+            aria-label="Berkenalan dengan Nestiara, buka Tentang dan Pengalaman"
+          >
+            <span class="speech-bubble">
+              Berkenalan dengan<br>
+              <strong>Nestiara</strong>
+            </span>
+          </a>
+
+          <!-- Gamepad di meja sebelah kiri -->
+          <a
+            id="games-hotspot"
+            class="games-hotspot"
+            href="#games"
+            aria-label="Buka Games melalui gamepad"
+          >
+            <svg
+              class="room-gamepad"
+              viewBox="0 0 200 120"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <linearGradient
+                  id="nest-gamepad-body"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop offset="0" stop-color="#445361"/>
+                  <stop offset="1" stop-color="#17232d"/>
+                </linearGradient>
+              </defs>
+
+              <path
+                d="M55 25 C38 25 30 35 24 52
+                   L12 87 C8 102 17 112 29 110
+                   C39 108 48 96 57 85 H143
+                   C152 96 161 108 171 110
+                   C183 112 192 102 188 87 L176 52
+                   C170 35 162 25 145 25 Z"
+                fill="url(#nest-gamepad-body)"
+                stroke="#71818e"
+                stroke-width="3"
+              />
+
+              <path
+                d="M53 41 H65 V53 H77 V65 H65 V77
+                   H53 V65 H41 V53 H53 Z"
+                fill="#101820"
+                stroke="#85939d"
+                stroke-width="2"
+              />
+
+              <circle
+                cx="146"
+                cy="43"
+                r="7"
+                fill="#efb75c"
+              />
+
+              <circle
+                cx="162"
+                cy="59"
+                r="7"
+                fill="#e77b88"
+              />
+
+              <circle
+                cx="130"
+                cy="59"
+                r="7"
+                fill="#71b5e0"
+              />
+
+              <circle
+                cx="146"
+                cy="75"
+                r="7"
+                fill="#73ceae"
+              />
+
+              <circle
+                cx="83"
+                cy="77"
+                r="13"
+                fill="#101820"
+                stroke="#7c8b96"
+                stroke-width="2"
+              />
+
+              <circle
+                cx="116"
+                cy="77"
+                r="13"
+                fill="#101820"
+                stroke="#7c8b96"
+                stroke-width="2"
+              />
+
+              <rect
+                x="88"
+                y="43"
+                width="10"
+                height="5"
+                rx="2"
+                fill="#a6b4be"
+              />
+
+              <rect
+                x="104"
+                y="43"
+                width="10"
+                height="5"
+                rx="2"
+                fill="#a6b4be"
+              />
+
+              <circle
+                cx="101"
+                cy="59"
+                r="4"
+                fill="#8ce7d6"
+              />
+            </svg>
+
+            <span class="gamepad-label">Games</span>
+          </a>
+
+          <!-- Handphone / Kontak -->
+          <a
+            id="phone-hotspot"
+            class="phone-link"
+            href="#kontak"
+            aria-label="Buka Kontak"
+          >
+            <span
+              class="phone-ripple"
+              aria-hidden="true"
+            ></span>
+
+            <img
+              class="room-phone"
+              src="assets/images/room/ringing-phone.png"
+              alt="Handphone berdering di atas meja."
+              width="1024"
+              height="1024"
+            >
+
+            <span class="phone-label">
+              Hubungi Nest
+
+              <span class="call-caption">
+                Ada percakapan baru…
+              </span>
+            </span>
+          </a>
+
+          <div
+            class="room-corner-note"
+            aria-hidden="true"
+          >
+            NEST'S CREATIVE SPACE
+            <span>Make yourself at home.</span>
+          </div>
+        </div>
+
+        <div class="room-status">
+          <span>
+            Jelajahi lewat benda-benda di kamar
+          </span>
+
+          <div>
+            <button
+              id="room-sound"
+              class="room-sound"
+              type="button"
+              aria-pressed="false"
+            >Suara: Nonaktif</button>
+          </div>
+        </div>
+      </div>
+
+      <nav
+        class="room-dock"
+        aria-label="Pilihan ruang"
+      >
+        <a href="#portfolio">
+          <span>01</span>
+          <strong>Mading Portfolio</strong>
+          <small>Sistem yang saya kerjakan</small>
+        </a>
+
+        <a href="#riset">
+          <span>02</span>
+          <strong>Rak Riset</strong>
+          <small>Karya akademik</small>
+        </a>
+
+        <a href="#tentang">
+          <span>03</span>
+          <strong>Kenalan dengan Nest</strong>
+          <small>Tentang &amp; pengalaman</small>
+        </a>
+
+        <a href="#games">
+          <span>04</span>
+          <strong>Games</strong>
+          <small>Mainkan game buatan Nest</small>
+        </a>
+
+        <a href="#kontak">
+          <span>05</span>
+          <strong>Handphone</strong>
+          <small>Mari mengobrol</small>
+        </a>
+      </nav>
+    </section>
+
+    <!-- =========================
+         TENTANG DAN PENGALAMAN
+    ========================== -->
+    <div
+      id="view-tentang"
+      class="room-page"
+      data-view="tentang"
+      hidden
+    >
+      <div class="page-toolbar">
+        <a href="#beranda" class="return-room">
+          Kembali ke Kamar
+        </a>
+
+        <span>Tentang &amp; Pengalaman</span>
+      </div>
+
+      <section id="about-intro" class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            NESTIARA
+            <span> / </span>
+            NEST
+          </p>
+
+          <p class="profession">
+            Information Systems Professional<br>
+            IT Project Manager · Web Developer
+          </p>
+
+          <h1>
+            Membangun sistem digital yang
+            <em>lebih membantu</em> pengguna.
+          </h1>
+
+          <p class="hero-description">
+            Saya Nest. Saya menghubungkan kebutuhan pengguna,
+            proses bisnis, dan teknologi melalui pengembangan
+            web dan pengelolaan proyek IT.
+          </p>
+
+          <div class="actions">
+            <a
+              href="#portfolio"
+              class="button primary"
+            >Lihat Portfolio</a>
+          </div>
+        </div>
+
+        <div
+          class="hero-art"
+          aria-label="Fokus kerja Nest"
+        >
+          <div class="art-top">
+            <span>THE WAY I CONNECT</span>
+            <span>01 / 04</span>
+          </div>
+
+          <div class="orbit">
+            <div class="orbit-ring ring-one"></div>
+            <div class="orbit-ring ring-two"></div>
+
+            <div class="orbit-core">
+              <span>N</span>
+              <small>nest.</small>
+            </div>
+
+            <div class="orbit-label label-user">
+              <span>01</span>
+              Kebutuhan<br>pengguna
+            </div>
+
+            <div class="orbit-label label-dev">
+              <span>02</span>
+              Pengembangan<br>sistem
+            </div>
+
+            <div class="orbit-label label-research">
+              <span>03</span>
+              Riset &amp;<br>analisis
+            </div>
+
+            <div class="orbit-label label-ai">
+              <span>04</span>
+              Minat<br>integrasi AI
+            </div>
+          </div>
+
+          <div class="art-bottom">
+            <span>PEOPLE × PROCESS × TECHNOLOGY</span>
+          </div>
+        </div>
+
+        <div class="focus-strip">
+          <span>Web Development</span>
+          <span>IT Project Management</span>
+          <span>Information Systems Research</span>
+          <span>AI Integration Interest</span>
+        </div>
+      </section>
+
+      <section
+        id="tentang"
+        class="section about reveal"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">01 / TENTANG SAYA</p>
+
+          <h2>
+            Dari kebutuhan,<br>
+            menjadi <em>solusi.</em>
+          </h2>
+        </div>
+
+        <div class="about-content">
+          <p class="large-text">
+            Sistem yang baik dimulai dari memahami
+            orang yang menggunakannya.
+          </p>
+
+          <p>
+            Pengalaman saya mencakup pengembangan aplikasi web,
+            komunikasi klien, koordinasi tim,
+            dan pengelolaan ruang lingkup proyek.
+          </p>
+
+          <div class="education"></div>
+
+          <div
+            id="skills"
+            class="skills-grid"
+          ></div>
+        </div>
+      </section>
+
+      <section
+        id="pengalaman"
+        class="section reveal"
+      >
+        <div class="section-heading horizontal">
+          <div>
+            <p class="eyebrow">02 / PENGALAMAN</p>
+
+            <h2>
+              Teknis bertemu<br>
+              <em>kolaborasi.</em>
+            </h2>
+          </div>
+        </div>
+
+        <div
+          id="experience"
+          class="timeline"
+        ></div>
+
+        <div class="certification">
+          <h3>Belajar &amp; berkembang</h3>
+
+          <div
+            id="certificates"
+            class="cert-grid"
+          ></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- =========================
+         PORTFOLIO
+    ========================== -->
+    <div
+      id="view-portfolio"
+      class="room-page"
+      data-view="portfolio"
+      hidden
+    >
+      <div class="page-toolbar">
+        <a href="#beranda" class="return-room">
+          Kembali ke Kamar
+        </a>
+
+        <span>Portfolio Sistem</span>
+      </div>
+
+      <section
+        id="portfolio"
+        class="section reveal"
+      >
+        <div class="section-heading horizontal">
+          <div>
+            <p class="eyebrow">03 / PORTFOLIO SISTEM</p>
+
+            <h2>
+              Beragam kebutuhan.<br>
+              <em>Karya sistem.</em>
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            Jelajahi tampilan dan alur sistem melalui
+            screenshot asli. Sistem dengan Public access
+            dapat dibuka melalui tautannya.
+          </p>
+        </div>
+
+        <div class="portfolio-toolbar">
+          <label class="search-label">
+            <span>Cari sistem</span>
+
+            <input
+              id="search"
+              type="search"
+              placeholder="Nama, kategori, atau fitur…"
+              autocomplete="off"
+            >
+          </label>
+
+          <label class="category-label">
+            <span>Kategori</span>
+
+            <select id="category">
+              <option value="">Semua kategori</option>
+            </select>
+          </label>
+
+          <p
+            id="result-count"
+            class="small"
+            aria-live="polite"
+          ></p>
+        </div>
+
+        <div
+          id="projects"
+          class="project-grid"
+        ></div>
+
+        <p
+          id="empty-projects"
+          class="empty"
+          hidden
+        >
+          Tidak ada sistem yang cocok.
+          Coba kata kunci atau kategori lain.
+        </p>
+      </section>
+    </div>
+
+    <!-- =========================
+         RISET
+    ========================== -->
+    <div
+      id="view-riset"
+      class="room-page"
+      data-view="riset"
+      hidden
+    >
+      <div class="page-toolbar">
+        <a href="#beranda" class="return-room">
+          Kembali ke Kamar
+        </a>
+
+        <span>Riset Akademik</span>
+      </div>
+
+      <section
+        id="riset"
+        class="section research reveal"
+      >
+        <div class="section-heading horizontal">
+          <div>
+            <p class="eyebrow">
+              04 / RISET &amp; KARYA AKADEMIK
+            </p>
+
+            <h2>
+              Rasa ingin tahu,<br>
+              <em>menjadi kajian.</em>
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            Karya akademik dan penelitian di bidang
+            sistem informasi, teknologi, dan proses bisnis.
+          </p>
+        </div>
+
+        <div
+          id="research-filters"
+          class="filter-row"
+          role="group"
+          aria-label="Filter topik riset"
+        ></div>
+
+        <div
+          id="research"
+          class="research-list"
+        ></div>
+      </section>
+    </div>
+
+    <!-- =========================
+         GAMES
+    ========================== -->
+    <div
+      id="view-games"
+      class="room-page"
+      data-view="games"
+      hidden
+    >
+      <div class="page-toolbar">
+        <a href="#beranda" class="return-room">
+          Kembali ke Kamar
+        </a>
+
+        <span>Games</span>
+      </div>
+
+      <section
+        id="games"
+        class="section reveal"
+      >
+        <div class="section-heading horizontal">
+          <div>
+            <p class="eyebrow">05 / GAMES</p>
+
+            <h2>
+              Waktu untuk<br>
+              <em>bermain.</em>
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            Jelajahi game yang saya buat.
+            Pilih game dan buka tautannya untuk bermain.
+          </p>
+        </div>
+
+        <div class="portfolio-toolbar">
+          <label class="search-label">
+            <span>Cari game</span>
+
+            <input
+              id="game-search"
+              type="search"
+              placeholder="Nama, kategori, atau deskripsi…"
+              autocomplete="off"
+            >
+          </label>
+
+          <label class="category-label">
+            <span>Kategori</span>
+
+            <select id="game-category">
+              <option value="">Semua kategori</option>
+            </select>
+          </label>
+
+          <p
+            id="game-result-count"
+            class="small"
+            aria-live="polite"
+          ></p>
+        </div>
+
+        <!-- Kartu beserta sampul dibuat oleh main.js. -->
+        <div
+          id="game-projects"
+          class="project-grid"
+        ></div>
+
+        <p
+          id="empty-games"
+          class="empty"
+          hidden
+        >
+          Belum ada game yang cocok.
+          Coba kata kunci atau kategori lain.
+        </p>
+      </section>
+    </div>
+
+    <!-- =========================
+         KONTAK
+    ========================== -->
+    <div
+      id="view-kontak"
+      class="room-page"
+      data-view="kontak"
+      hidden
+    >
+      <div class="page-toolbar">
+        <a href="#beranda" class="return-room">
+          Kembali ke Kamar
+        </a>
+
+        <span>Kontak</span>
+      </div>
+
+      <section
+        id="kontak"
+        class="section contact reveal"
+      >
+        <p class="eyebrow">06 / MULAI PERCAKAPAN</p>
+
+        <h2>
+          Ada ide yang ingin<br>
+          <em>kita wujudkan?</em>
+        </h2>
+
+        <p>
+          Saya terbuka untuk diskusi proyek,
+          peluang kerja, dan kolaborasi
+          di bidang sistem informasi.
+        </p>
+
+        <div
+          id="contact-actions"
+          class="actions"
+        ></div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    <a class="brand" href="#beranda">
+      nest<span class="brand-dot">.</span>
+    </a>
+
+    <p>Nestiara · Indonesia</p>
+
+    <span>Systems with purpose.</span>
+  </footer>
+
+  <a
+    class="back-top"
+    href="#beranda"
+    aria-label="Kembali ke atas"
+  >↑</a>
+
+  <!-- =========================
+       DIALOG GALERI PORTFOLIO
+  ========================== -->
+  <dialog
+    id="gallery-dialog"
+    class="gallery-dialog"
+    aria-labelledby="gallery-title"
+  >
+    <div class="dialog-header">
+      <div>
+        <p class="eyebrow">GALERI SCREENSHOT</p>
+        <h2 id="gallery-title"></h2>
+      </div>
+
+      <button
+        class="icon-button close-dialog"
+        type="button"
+        aria-label="Tutup galeri"
+      >✕</button>
+    </div>
+
+    <div class="image-stage">
+      <button
+        id="previous-image"
+        class="gallery-arrow"
+        type="button"
+        aria-label="Screenshot sebelumnya"
+      >‹</button>
+
+      <img id="full-image" alt="">
+
+      <button
+        id="next-image"
+        class="gallery-arrow"
+        type="button"
+        aria-label="Screenshot berikutnya"
+      >›</button>
+    </div>
+
+    <div class="gallery-meta">
+      <p id="gallery-caption"></p>
+
+      <span
+        id="gallery-number"
+        aria-live="polite"
+      ></span>
+    </div>
+
+    <div
+      id="gallery-thumbnails"
+      class="thumbnails"
+      aria-label="Pilih screenshot"
+    ></div>
+  </dialog>
+
+  <!-- =========================
+       DIALOG RISET
+  ========================== -->
+  <dialog
+    id="research-dialog"
+    class="research-dialog"
+    aria-labelledby="research-title"
+  >
+    <div class="dialog-header">
+      <p class="eyebrow">RINGKASAN KARYA</p>
+
+      <button
+        class="icon-button close-dialog"
+        type="button"
+        aria-label="Tutup ringkasan"
+      >✕</button>
+    </div>
+
+    <div id="research-detail"></div>
+  </dialog>
+
+  <noscript>
+    <p class="noscript">
+      Aktifkan JavaScript untuk menampilkan portfolio,
+      riset, games, dan kamar interaktif.
+    </p>
+  </noscript>
+</body>
+</html>
