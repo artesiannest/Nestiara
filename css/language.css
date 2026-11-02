@@ -20,3 +20,16 @@ html[lang=th] .eyebrow,html[lang=zh-CN] .eyebrow{letter-spacing:.035em}
 @media(max-width:1200px){.header{gap:14px}.header #navigation{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);padding:18px 5%;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}.header #navigation.open{display:flex}.header #navigation a{padding:10px}.header .mobile-menu{display:grid}.header .brand-label{display:none}}
 @media(max-width:480px){.header{padding-left:4%;padding-right:4%;gap:8px}.header-actions{gap:6px}.language-switcher summary{padding:7px;gap:5px}.language-flag{width:22px;height:15px}.header .brand{font-size:1.65rem}.header .icon-button{width:38px;min-height:40px}.language-options{min-width:220px}}
 @media print{.language-switcher{display:none!important}}
+
+/* Explicit geometry isolates the selector from global button and SVG rules. */
+.header .header-actions{display:flex;align-items:center;gap:10px}
+#language-switcher{margin:0;order:5;isolation:isolate}
+#language-switcher,#language-switcher *{box-sizing:border-box}
+#language-switcher summary{width:92px;height:42px;min-height:42px;padding:0 10px;justify-content:space-between;white-space:nowrap;font-family:inherit;font-weight:600;font-size:13px;line-height:1.2;letter-spacing:0;text-transform:none}
+#language-switcher summary::marker{content:''}
+#language-switcher .language-flag{width:24px!important;height:16px!important;min-width:24px;max-width:24px;display:block;flex:0 0 24px;margin:0}
+#language-switcher:not([open]) .language-options{display:none!important}
+#language-switcher .language-options{position:fixed;left:auto;right:12px;top:80px;width:248px;min-width:0;max-width:calc(100vw - 24px);z-index:1000;padding:6px;overflow-y:auto;background:var(--bg,#0b1418);color:var(--text,#edf4f5)}
+#language-switcher .language-options button{display:grid;grid-template-columns:24px minmax(0,1fr) 18px;gap:12px;align-items:center;width:100%;min-height:48px;margin:0;padding:10px 12px;white-space:normal;text-align:left;font-family:inherit;font-size:14px;font-weight:500;line-height:1.4;letter-spacing:0;text-transform:none;box-shadow:none}
+#language-switcher .language-check{margin:0;text-align:center}
+@media(max-width:480px){#language-switcher summary{width:84px;padding:0 8px}.header .header-actions{gap:6px}}
